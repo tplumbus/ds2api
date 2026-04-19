@@ -15,7 +15,7 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080"
+		port = "3000" // changed default from 8080 to 3000 to avoid conflicts on my machine
 	}
 
 	server := NewServer()
