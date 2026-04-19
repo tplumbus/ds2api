@@ -24,6 +24,7 @@ func main() {
 	log.Printf("Environment: %s", getEnv("APP_ENV", "development"))
 	log.Printf("Log level: %s", getEnv("LOG_LEVEL", "info"))
 	log.Printf("Debug mode: %s", getEnv("DEBUG", "false"))
+	log.Printf("Version: %s", getEnv("APP_VERSION", "dev"))
 	if err := server.Run(":" + port); err != nil {
 		log.Fatalf("Failed to start server: %v", err)
 	}
