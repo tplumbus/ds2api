@@ -22,6 +22,7 @@ func main() {
 
 	log.Printf("Starting ds2api server on port %s", port)
 	log.Printf("Environment: %s", getEnv("APP_ENV", "development"))
+	log.Printf("Log level: %s", getEnv("LOG_LEVEL", "info"))
 	if err := server.Run(":" + port); err != nil {
 		log.Fatalf("Failed to start server: %v", err)
 	}
