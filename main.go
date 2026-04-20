@@ -25,12 +25,15 @@ func main() {
 	log.Printf("Log level: %s", getEnv("LOG_LEVEL", "info"))
 	log.Printf("Debug mode: %s", getEnv("DEBUG", "false"))
 	log.Printf("Version: %s", getEnv("APP_VERSION", "dev"))
+	log.Printf("Server address: http://localhost:%s", port)
 	if err := server.Run(":" + port); err != nil {
 		log.Fatalf("Failed to start server: %v", err)
 	}
 }
 
 // getEnv returns the value of an environment variable or a fallback default.
+// If the environment variable is not set, the fallback value is used.
+// This is useful for providing sensible defaults in development environments.
 func getEnv(key, fallback string) string {
 	if val := os.Getenv(key); val != "" {
 		return val
