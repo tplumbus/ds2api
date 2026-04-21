@@ -35,6 +35,7 @@ func main() {
 // getEnv returns the value of an environment variable or a fallback default.
 // If the environment variable is not set, the fallback value is used.
 // This is useful for providing sensible defaults in development environments.
+// Note: empty string values are treated as unset; use a placeholder like "0" or "false" if needed.
 func getEnv(key, fallback string) string {
 	if val := os.Getenv(key); val != "" {
 		return val
