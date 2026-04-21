@@ -26,6 +26,7 @@ func main() {
 	log.Printf("Debug mode: %s", getEnv("DEBUG", "false"))
 	log.Printf("Version: %s", getEnv("APP_VERSION", "dev"))
 	log.Printf("Server address: http://localhost:%s", port)
+	log.Printf("API docs: http://localhost:%s/docs", port) // handy reminder when starting up
 	if err := server.Run(":" + port); err != nil {
 		log.Fatalf("Failed to start server: %v", err)
 	}
