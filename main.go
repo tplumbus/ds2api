@@ -44,3 +44,14 @@ func getEnv(key, fallback string) string {
 	}
 	return fallback
 }
+
+// getEnvBool is a convenience wrapper around getEnv for boolean flags.
+// Returns true only if the environment variable is explicitly set to "true" (case-sensitive).
+// Useful for feature flags like DEBUG, ENABLE_CACHE, etc.
+func getEnvBool(key string, fallback bool) bool {
+	val := os.Getenv(key)
+	if val == "" {
+		return fallback
+	}
+	return val == "true"
+}
