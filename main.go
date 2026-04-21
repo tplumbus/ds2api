@@ -36,6 +36,7 @@ func main() {
 // If the environment variable is not set, the fallback value is used.
 // This is useful for providing sensible defaults in development environments.
 // Note: empty string values are treated as unset; use a placeholder like "0" or "false" if needed.
+// TODO: consider supporting a .env.local override file for machine-specific secrets (not committed to git)
 func getEnv(key, fallback string) string {
 	if val := os.Getenv(key); val != "" {
 		return val
