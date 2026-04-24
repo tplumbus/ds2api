@@ -47,11 +47,12 @@ func getEnv(key, fallback string) string {
 
 // getEnvBool is a convenience wrapper around getEnv for boolean flags.
 // Returns true if the environment variable is set to "true", "1", or "yes" (case-sensitive).
+// Also accepts "on" as a truthy value, which some tools (e.g. Docker Compose) use by convention.
 // Useful for feature flags like DEBUG, ENABLE_CACHE, etc.
 func getEnvBool(key string, fallback bool) bool {
 	val := os.Getenv(key)
 	if val == "" {
 		return fallback
 	}
-	return val == "true" || val == "1" || val == "yes"
+	return val == "true" || val == "1" || val == "yes" || val == "on"
 }
